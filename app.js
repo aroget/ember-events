@@ -10,7 +10,7 @@ var port = process.env.PORT || 3000;
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/hackathon');
 
 // set the static files location
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/frontend/dist'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
