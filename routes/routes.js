@@ -2,20 +2,18 @@ var mongoose = require('mongoose');
 var eventsSchema = new mongoose.Schema({
   name: 'String',
   date: 'Date',
-  location: 'String',
   city: 'String',
   zip: 'String',
-  lat: 'Number',
-  long: 'Number',
   address: 'String',
   description: 'String',
   timestamp: 'Date',
-  url: 'String',
-  isPrivate: 'Boolean'
+  isPrivate: 'Boolean',
+  type: 'String'
   // comments: []
   // commentTitle: 'String',
   // commentBody: 'String'
 });
+
 
 var eventsModel = mongoose.model('event',eventsSchema);
 
@@ -65,16 +63,14 @@ var eventsModel = mongoose.model('event',eventsSchema);
     var event = new eventsModel();
     event.name        = req.body.event.name;
     event.date        = req.body.event.date;
-    event.location    = req.body.event.location;
     event.city        = req.body.event.city;
     event.zip         = req.body.event.zip;
-    event.lat         = req.body.event.lat;
-    event.long        = req.body.event.long;
     event.address     = req.body.event.address;
     event.description = req.body.event.description;
     event.timestamp   = new Date();
-    event.url         = req.body.event.url;
     event.isPrivate   = req.body.event.isPrivate;
+    event.type        = req.body.event.type;
+
 
     event.save(function(error) {
       if (error)
@@ -89,16 +85,13 @@ var eventsModel = mongoose.model('event',eventsSchema);
     var data = {
       name        : req.body.event.name,
       date        : req.body.event.date,
-      location    : req.body.event.location,
       city        : req.body.event.city,
       zip         : req.body.event.zip,
-      lat         : req.body.event.lat,
-      long        : req.body.event.long,
       address     : req.body.event.address,
       description : req.body.event.description,
       timestamp   : new Date(),
-      url         : req.body.event.url,
-      isPrivate   : req.body.event.isPrivate
+      isPrivate   : req.body.event.isPrivate,
+      type        : req.body.event.type
     }
 
     eventsModel.update(query, { $set: data }, function(err, doc){
