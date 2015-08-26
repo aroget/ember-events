@@ -17,7 +17,8 @@ define('frontend/adapters/application', ['exports', 'ember-data'], function (exp
   'use strict';
 
   exports['default'] = DS['default'].RESTAdapter.extend({
-    host: 'http://localhost:3000',
+    // host: 'http://localhost:3000',
+    host: 'https://ar-events.herokuapp.com',
     namespace: 'api'
   });
 
