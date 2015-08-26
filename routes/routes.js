@@ -101,6 +101,6 @@ var eventsModel = mongoose.model('event',eventsSchema);
 
 
   app.get('*', function(req, res) {
-      res.sendfile('./public/dist/index.html'); // load our public/index.html file
+      res.sendfile('./public/index.html'); // load our public/index.html file
   });
 };
